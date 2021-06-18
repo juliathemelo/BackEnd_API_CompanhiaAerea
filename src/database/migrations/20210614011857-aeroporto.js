@@ -5,18 +5,20 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-    return await queryInterface.createTable('users', { 
-      id: {
-        type: Sequelize.INTEGER,
+    return await queryInterface.createTable('aeroporto', { 
+      codigo_aeroporto: {
+        type: Sequelize.STRING,
         primaryKey: true,
-        autoIncrement: true,
-
       },
-      name: {
+      nome: {
         type: Sequelize.STRING,
         allowNull:false
       },
-      email:{
+      cidade:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      estado:{
         type: Sequelize.STRING,
         allowNull: false
       }
@@ -26,7 +28,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
    
-    return await queryInterface.dropTable('users');
+    return await queryInterface.dropTable('aeroporto');
     
   }
 };

@@ -2,15 +2,21 @@
 
 const Sequelize = require('sequelize')
 const dbConfig = require('../config/database')
-const User = require('../models/User')
-const Address = require('../models/Address')
+const Aeroporto = require('../models/Aeroporto')
+const Voo = require('../models/Voo')
+const Trecho_voo = require('../models/Trecho_voo')
+const Tipo =  require('../models/Tipo_aeronave')
 
 const connection = new Sequelize(dbConfig)
 
-User.init(connection)
-Address.init(connection)
+Aeroporto.init(connection)
+Voo.init(connection)
+Trecho_voo.init(connection)
+Tipo.init(connection)
 
-User.associate(connection.models)
-Address.associate(connection.models)
+Aeroporto.associate(connection.models)
+Voo.associate(connection.models)
+Trecho_voo.associate(connection.models)
+// Tipo.associate(connection.models)
 
 module.exports = connection

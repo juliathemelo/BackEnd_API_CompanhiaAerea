@@ -5,9 +5,9 @@ module.exports = {
     host: 'localhost',
     username: 'root',
     password: '21210',
-    database: 'teste',
+    database: 'companhia_aerea',
     define: {
         timestamps: false,
-        underscored: true
+        underscored: false
     }
 }
