@@ -15,9 +15,9 @@ class Tipo_aeronave extends Model{
         })
     }
 
-    // static associate(models){
-        
-    // }
+    static associate(models){
+        this.hasMany(models.Aeronave, {foreignKey: 'tipo_aeronave', as: 'tipoA'})
+    }
 }
 
 module.exports = Tipo_aeronave
