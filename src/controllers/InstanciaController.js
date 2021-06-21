@@ -1,9 +1,6 @@
 const Voo = require('../models/Voo')
 const Instancia = require('../models/Instancia_trecho')
 
-
-
-
 module.exports = {
     async consulta(req,res){
         const instancia = await Instancia.findAll()
@@ -19,14 +16,14 @@ module.exports = {
         if(!voo){
             return res.status(400).json({error:'User not found'})
         }
-        const instancia = await Trecho_voo.create({numero_voo,numero_trecho,codigo_aeronave,codigo_aeroporto_partida,codigo_aeroporto_chegada,data_,numero_assento_disponivel, horario_partida, horario_chegada})
+        const instancia = await Instancia.create({numero_voo,numero_trecho,codigo_aeronave,codigo_aeroporto_partida,codigo_aeroporto_chegada,data_,numero_assento_disponivel, horario_partida, horario_chegada})
         return res.json(instancia)
     },
 
     async atualizar(req,res){
         const {data_,numero_assento_disponivel, horario_partida, horario_chegada,numero_voo} = req.body
 
-        const instancia = await Trecho_voo.update({data_,numero_assento_disponivel, horario_partida, horario_chegada}, {where: {numero_voo: numero_voo}})
+        const instancia = await Instancia.update({data_,numero_assento_disponivel, horario_partida, horario_chegada}, {where: {numero_voo: numero_voo}})
 
         return res.json(instancia)
     }

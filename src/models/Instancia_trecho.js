@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require('sequelize')
 
-class Instancia extends Model{
+class Instancia_trecho extends Model{
     static init(connection){
         super.init({
             numero_trecho: DataTypes.STRING,
@@ -29,4 +29,4 @@ class Instancia extends Model{
     }
 }
 
-module.exports = Instancia
+module.exports = Instancia_trecho
