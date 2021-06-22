@@ -10,6 +10,7 @@ const Aero = require('../models/Aeronave')
 const Instancia = require('../models/Instancia_trecho')
 const Pousar = require('../models/Pode_pousar')
 const Tarifa = require('../models/Tarifa')
+const Reserva = require('../models/Reserva_assento')
 
 const connection = new Sequelize(dbConfig)
 
@@ -21,6 +22,7 @@ Aero.init(connection)
 Instancia.init(connection)
 Pousar.init(connection)
 Tarifa.init(connection)
+Reserva.init(connection)
 
 
 Aeroporto.associate(connection.models)
@@ -31,5 +33,6 @@ Aero.associate(connection.models)
 Instancia.associate(connection.models)
 Pousar.associate(connection.models)
 Tarifa.associate(connection.models)
+Reserva.associate(connection.models)
 
 module.exports = connection

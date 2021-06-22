@@ -7,13 +7,15 @@ const AeroController = require('./controllers/AeronaveController')
 const InstanciaController = require('./controllers/InstanciaController')
 const PousarController = require('./controllers/PodepousarController')
 const TarifaController = require('./controllers/TarifaController')
+const ReservaController = require('./controllers/ReservaassentoController')
 const routes = express.Router()
 
 routes.get('/aeroporto', AeroportoController.consulta )
 routes.post('/aeroporto', AeroportoController.create )
 
-routes.post('/voo', VooController.create)
+routes.post('/voo/:numero_voo', VooController.create)
 routes.get('/voo', VooController.consulta)
+routes.put('/voo/:numero_voo', VooController.atualizar)
 
 routes.post('/trecho/:numero_voo/:codigo_aeroporto_partida/:codigo_aeroporto_chegada', TrechoController.create)
 routes.get('/trecho', TrechoController.consulta)
@@ -37,6 +39,8 @@ routes.post('/tarifa/:numero_voo', TarifaController.create)
 routes.get('/tarifa', TarifaController.consulta)
 routes.put('/tarifa', TarifaController.atualizar)
 
-
+routes.post('/reserva/:numero_voo/:numero_trecho/:data_', ReservaController.create)
+routes.get('/reserva', ReservaController.consulta)
+routes.put('/reserva', ReservaController.atualizar)
 
 module.exports = routes
