@@ -22,9 +22,17 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {numero_voo,codigo_tarifa,quantidade,restricoes} = req.body
+        const {numero} = req.params
+        const {codigo_tarifa,quantidade,restricoes} = req.body
 
-        const tarifa = await Tarifa.update({codigo_tarifa,quantidade,restricoes}, {where: {numero_voo: numero_voo}})
+        const tarifa = await Tarifa.update({codigo_tarifa,quantidade,restricoes}, {where: {numero_voo: numero}})
+
+        return res.json(tarifa)
+    },
+    async delete(req,res){
+        const {numero} = req.params
+
+        const tarifa = await Tarifa.destroy({where: {numero_voo: numero}})
 
         return res.json(tarifa)
     }

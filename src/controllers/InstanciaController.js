@@ -21,10 +21,17 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {data_,numero_assento_disponivel, horario_partida, horario_chegada,numero_voo} = req.body
+        const {numero} = req.params
+        const {data_,numero_assento_disponivel, horario_partida, horario_chegada} = req.body
 
-        const instancia = await Instancia.update({data_,numero_assento_disponivel, horario_partida, horario_chegada}, {where: {numero_voo: numero_voo}})
+        const instancia = await Instancia.update({data_,numero_assento_disponivel, horario_partida, horario_chegada}, {where: {numero_voo: numero}})
 
+        return res.json(instancia)
+    },
+
+    async delete(req,res){
+        const {numero} = req.params
+        const instancia = await Instancia.destroy({where:{numero_voo: numero}})
         return res.json(instancia)
     }
 }

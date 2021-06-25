@@ -18,6 +18,8 @@ class Aeroporto extends Model{
     static associate(models){
         this.hasMany(models.Trecho_voo, {foreignKey: 'codigo_aeroporto_partida', as: 'partidaA'})
         this.hasMany(models.Trecho_voo, {foreignKey: 'codigo_aeroporto_chegada', as: 'chegadaA'})
+        this.hasMany(models.Instancia_trecho, {foreignKey: 'codigo_aeroporto_partida', as: 'aapartidaA'})
+        this.hasMany(models.Instancia_trecho, {foreignKey: 'codigo_aeroporto_chegada', as: 'aachegadaA'})
     }
 }
 

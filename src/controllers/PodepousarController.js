@@ -19,4 +19,11 @@ module.exports = {
         const pode = await Pousar.create({nome_tipo_aeronave,codigo_aeroporto})
         return res.json(pode)
     },
+
+    async delete(req,res){
+        const{codigo} = req.params
+
+        const pode = await Pousar.destroy({where:{codigo_aeroporto:codigo}})
+        return res.json(pode)
+    }
 }
