@@ -11,8 +11,7 @@ module.exports = {
     },
 
     async create(req,res){
-        const {numero_voo,codigo_aeroporto_partida,codigo_aeroporto_chegada} = req.params
-        const {numero_trecho, horario_partida_previsto, horario_chegada_previsto} = req.body
+        const {numero_voo,codigo_aeroporto_partida,codigo_aeroporto_chegada,numero_trecho, horario_partida_previsto, horario_chegada_previsto} = req.body
 
         const trechinho = await Voo.findByPk(numero_voo)
         if(!trechinho){

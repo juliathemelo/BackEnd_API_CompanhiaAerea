@@ -9,8 +9,7 @@ module.exports = {
     },
 
     async create(req,res){
-        const {numero_voo,numero_trecho,codigo_aeronave,codigo_aeroporto_partida,codigo_aeroporto_chegada} = req.params
-        const {data_,numero_assento_disponivel, horario_partida, horario_chegada} = req.body
+        const {numero_voo,numero_trecho,codigo_aeronave,codigo_aeroporto_partida,codigo_aeroporto_chegada,data_,numero_assento_disponivel, horario_partida, horario_chegada} = req.body
 
         const voo = await Voo.findByPk(numero_voo)
         if(!voo){
