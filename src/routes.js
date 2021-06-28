@@ -15,7 +15,7 @@ routes.post('/aeroporto', AeroportoController.create )
 routes.put('/aeroporto/:codigo', AeroportoController.atualizar )
 routes.delete('/aeroporto/:codigo', AeroportoController.delete)
 
-routes.post('/voo/:numero_voo', VooController.create)
+routes.post('/voo', VooController.create)
 routes.get('/voo', VooController.consulta)
 routes.put('/voo/:numero', VooController.atualizar)
 routes.delete('/voo/:numero', VooController.delete)
