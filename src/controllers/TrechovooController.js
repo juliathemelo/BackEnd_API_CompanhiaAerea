@@ -22,15 +22,15 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {numero} = req.params
-        const {numero_trecho, horario_partida_previsto, horario_chegada_previsto} = req.body
+       
+        const {numero,numero_trecho, horario_partida_previsto, horario_chegada_previsto} = req.body
 
         const trecho = await Trecho_voo.update({numero_trecho, horario_partida_previsto, horario_chegada_previsto}, {where: {numero_voo: numero}})
 
         return res.json(trecho)
     },
     async delete(req,res){
-        const {numero} = req.params
+        const {numero} = req.body
         const trecho = await Trecho_voo.destroy({ where:{numero_trecho: numero}})
         return res.json(trecho)
     }

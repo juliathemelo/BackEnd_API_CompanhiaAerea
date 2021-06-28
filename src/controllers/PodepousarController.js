@@ -21,7 +21,7 @@ module.exports = {
     },
 
     async delete(req,res){
-        const{codigo} = req.params
+        const{codigo} = req.body
 
         const pode = await Pousar.destroy({where:{codigo_aeroporto:codigo}})
         return res.json(pode)

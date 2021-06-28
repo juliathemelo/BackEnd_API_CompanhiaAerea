@@ -21,15 +21,15 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {tipo} = req.params
-        const {codigo_aeronave,numero_total_assentos} = req.body
+        
+        const {tipo,codigo_aeronave,numero_total_assentos} = req.body
 
         const aero = await Aeronave.update({codigo_aeronave,numero_total_assentos}, {where: {tipo_aeronave: tipo}})
 
         return res.json(aero)
     },
     async delete(req,res){
-        const {tipo} = req.params
+        const {tipo} = req.body
 
         const aero = await Aeronave.destroy({where: {tipo_aeronave: tipo}})
 

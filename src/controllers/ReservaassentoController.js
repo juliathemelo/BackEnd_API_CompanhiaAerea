@@ -17,15 +17,15 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {numero} = req.params
-        const {numero_assento,nome_cliente,telefone_cliente} = req.body
+        
+        const {numero,numero_assento,nome_cliente,telefone_cliente} = req.body
 
         const reserva = await Reserva.update({numero_assento,nome_cliente,telefone_cliente}, {where: {numero_voo: numero}})
 
         return res.json(reserva)
     },
     async delete(req,res){
-        const {numero} = req.params
+        const {numero} = req.body
     
 
         const reserva = await Reserva.destroy({where: {numero_voo: numero}})

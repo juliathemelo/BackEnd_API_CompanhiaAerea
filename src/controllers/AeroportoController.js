@@ -15,8 +15,8 @@ module.exports = {
     },
 
     async atualizar(req,res){
-        const {codigo} = req.params
-        const {codigo_aeroporto, nome, cidade, estado} = req.body
+        
+        const {codigo,codigo_aeroporto, nome, cidade, estado} = req.body
 
         const aeroporto = await Aeroporto.update({codigo_aeroporto, nome, cidade, estado}, {where: {codigo_aeroporto: codigo}})
 
@@ -24,7 +24,7 @@ module.exports = {
     },
 
     async delete(req,res){
-        const {codigo_aeroporto} = req.params
+        const {codigo_aeroporto} = req.body
         const aeroporto = await Aeroporto.destroy({ where:{codigo_aeroporto: codigo_aeroporto}})
         return res.json(aeroporto)
     }
